@@ -1,0 +1,47 @@
+/* Estilo general */
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+    background-color: #eaf0f5;
+    margin: 0;
+    padding: 2rem;
+    color: #333;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .card h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 1rem;
+  }
+  
+  .card p {
+    font-size: 0.95rem;
+    margin: 0.3rem 0;
+    color: #555;
+  }
+  

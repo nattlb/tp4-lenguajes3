@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TP4 - Natalia Tolaba</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+      background-color: #eaf0f5;
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #34495e;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      margin: 0.3rem 0;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Elementos</h1>
+  <div class="container" id="lista-elementos"></div>
+
+  <script>
+    const elementos = [
+      { nombre: 'Elemento A', color: 'Rojo', tamaño: 'Grande', forma: 'Circular' },
+      { nombre: 'Elemento B', color: 'Azul', tamaño: 'Mediano', forma: 'Cuadrada' },
+      { nombre: 'Elemento C', color: 'Verde', tamaño: 'Pequeño', forma: 'Triangular' },
+      { nombre: 'Elemento D', color: 'Amarillo', tamaño: 'Grande', forma: 'Ovalada' },
+      { nombre: 'Elemento E', color: 'Naranja', tamaño: 'Mediano', forma: 'Rectangular' },
+      { nombre: 'Elemento F', color: 'Rosa', tamaño: 'Pequeño', forma: 'Estrella' },
+      { nombre: 'Elemento G', color: 'Gris', tamaño: 'Grande', forma: 'Rombo' },
+      { nombre: 'Elemento H', color: 'Celeste', tamaño: 'Mediano', forma: 'Trapecio' },
+      { nombre: 'Elemento I', color: 'Violeta', tamaño: 'Pequeño', forma: 'Corazón' }
+    ];
+
+    const contenedor = document.getElementById("lista-elementos");
+
+    elementos.map(elemento => {
+      const tarjeta = document.createElement("div");
+      tarjeta.className = "card";
+      tarjeta.innerHTML = `
+        <h2>${elemento.nombre}</h2>
+        <p><strong>Color:</strong> ${elemento.color}</p>
+        <p><strong>Tamaño:</strong> ${elemento.tamaño}</p>
+        <p><strong>Forma:</strong> ${elemento.forma}</p>
+      `;
+      contenedor.appendChild(tarjeta);
+    });
+  </script>
+</body>
+</html>
