@@ -2,80 +2,100 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TP4 - Natalia Tolaba</title>
+  <title>Miembros de EXO</title>
   <style>
     body {
-      font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
-      background-color: #eaf0f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
       margin: 0;
-      padding: 2rem;
-      color: #333;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #2c3e50;
-      margin-bottom: 2rem;
+      padding: 30px 20px;
       text-align: center;
     }
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+    h1 {
+      font-size: 2.5em;
+      color: #ffffff;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #888;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
     }
 
     .card {
-      background-color: #fff;
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      background-color: #1e1e1e;
+      border: 1px solid #444;
+      border-radius: 10px;
+      width: 250px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
     .card h2 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #34495e;
-      margin-bottom: 1rem;
+      margin-top: 0;
+      color: #00ffe5;
+      font-size: 1.5em;
+      border-bottom: 1px solid #333;
+      padding-bottom: 5px;
     }
 
     .card p {
-      font-size: 0.95rem;
-      margin: 0.3rem 0;
-      color: #555;
+      margin: 8px 0;
+      font-size: 0.95em;
+      color: #ccc;
+    }
+
+    strong {
+      color: #eee;
     }
   </style>
 </head>
 <body>
-  <h1>Lista de Elementos</h1>
-  <div class="container" id="lista-elementos"></div>
+  <h1>Miembros de EXO</h1>
+  <div id="contenedor" class="contenedor"></div>
 
   <script>
-    const elementos = [
-      { nombre: 'Elemento A', color: 'Rojo', tamaño: 'Grande', forma: 'Circular' },
-      { nombre: 'Elemento B', color: 'Azul', tamaño: 'Mediano', forma: 'Cuadrada' },
-      { nombre: 'Elemento C', color: 'Verde', tamaño: 'Pequeño', forma: 'Triangular' },
-      { nombre: 'Elemento D', color: 'Amarillo', tamaño: 'Grande', forma: 'Ovalada' },
-      { nombre: 'Elemento E', color: 'Naranja', tamaño: 'Mediano', forma: 'Rectangular' },
-      { nombre: 'Elemento F', color: 'Rosa', tamaño: 'Pequeño', forma: 'Estrella' },
-      { nombre: 'Elemento G', color: 'Gris', tamaño: 'Grande', forma: 'Rombo' },
-      { nombre: 'Elemento H', color: 'Celeste', tamaño: 'Mediano', forma: 'Trapecio' },
-      { nombre: 'Elemento I', color: 'Violeta', tamaño: 'Pequeño', forma: 'Corazón' }
+    const exo = [
+      { nombre: "Suho", nombreReal: "Kim Jun-myeon", posicion: "Líder, vocalista", nacimiento: "22 de mayo de 1991" },
+      { nombre: "Xiumin", nombreReal: "Kim Min-seok", posicion: "Vocalista, bailarín", nacimiento: "26 de marzo de 1990" },
+      { nombre: "Lay", nombreReal: "Zhang Yixing", posicion: "Bailarín principal, vocalista", nacimiento: "7 de octubre de 1991" },
+      { nombre: "Baekhyun", nombreReal: "Byun Baek-hyun", posicion: "Vocalista principal", nacimiento: "6 de mayo de 1992" },
+      { nombre: "Chen", nombreReal: "Kim Jong-dae", posicion: "Vocalista principal", nacimiento: "21 de septiembre de 1992" },
+      { nombre: "Chanyeol", nombreReal: "Park Chan-yeol", posicion: "Rapper, vocalista", nacimiento: "27 de noviembre de 1992" },
+      { nombre: "D.O.", nombreReal: "Do Kyung-soo", posicion: "Vocalista principal", nacimiento: "12 de enero de 1993" },
+      { nombre: "Kai", nombreReal: "Kim Jong-in", posicion: "Bailarín principal, vocalista", nacimiento: "14 de enero de 1994" },
+      { nombre: "Sehun", nombreReal: "Oh Se-hun", posicion: "Rapper, bailarín", nacimiento: "12 de abril de 1994" }
     ];
 
-    const contenedor = document.getElementById("lista-elementos");
+    const contenedor = document.getElementById("contenedor");
 
-    elementos.map(elemento => {
-      const tarjeta = document.createElement("div");
-      tarjeta.className = "card";
-      tarjeta.innerHTML = `
-        <h2>${elemento.nombre}</h2>
-        <p><strong>Color:</strong> ${elemento.color}</p>
-        <p><strong>Tamaño:</strong> ${elemento.tamaño}</p>
-        <p><strong>Forma:</strong> ${elemento.forma}</p>
+    exo.map(miembro => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <h2>${miembro.nombre}</h2>
+        <p><strong>Nombre real:</strong> ${miembro.nombreReal}</p>
+        <p><strong>Posición:</strong> ${miembro.posicion}</p>
+        <p><strong>Nacimiento:</strong> ${miembro.nacimiento}</p>
       `;
-      contenedor.appendChild(tarjeta);
+      contenedor.appendChild(card);
     });
   </script>
 </body>
